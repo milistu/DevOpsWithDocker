@@ -1,4 +1,4 @@
-# EXERCISE 1.8: TWO LINE DOCKERFILE
+# EXERCISE 1.8: TWO LINE DOCKERFILE 🤔
 By default our `devopsdockeruh/simple-web-service:alpine` doesn't have a CMD. It instead uses ENTRYPOINT to declare which application is run.
 
 We'll talk more about ENTRYPOINT in the next section, but you already know that the last argument in `docker run` can be used to give a command or an argument.
