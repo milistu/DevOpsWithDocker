@@ -49,7 +49,7 @@ Submit the Dockerfile.
 
 3. Build a Docker image:
 
-    _**Note**: Be shure you are in directory containing `Docerfile`._
+    _**Note**: Be shure you are in directory containing `Dockerfile`._
     
     ```bash
     docker build . -t web-service

@@ -39,7 +39,7 @@ $ docker run web-server
 
 2. Build the image:
 
-    _**Note**: Be shure you are in directory containing `Docerfile`_
+    _**Note**: Be shure you are in directory containing `Dockerfile`_
 
     ```bash
     docker build . -t web-server
