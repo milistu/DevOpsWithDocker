@@ -2,9 +2,9 @@ FROM node:16.20.2-alpine3.18
 
 WORKDIR /app
 
-# Additional for Exercise 1.14
+# --- Additional for Exercise 1.14
 ENV REACT_APP_BACKEND_URL=http://localhost:8080
-# End of Additional
+# --- End
 
 COPY /example-frontend /app
 
