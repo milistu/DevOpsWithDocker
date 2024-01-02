@@ -60,11 +60,6 @@ You can achieve this by initiating the docker build from the project's root, man
 
 5. Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this:
 
-    ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_12_output.png "Exercise 12 Output")
+    ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_12_output.png "Exercise 12 Output")
 
 _**Note**: We won't be deleting "example-frontend" yet, we will need it for next exercises._
-
-<!-- 6. After we verified that everything works we can now delete the "example-frontend" so we don't waste space:
-    ```bash
-    rm -r example-frontend
-    ``` -->
