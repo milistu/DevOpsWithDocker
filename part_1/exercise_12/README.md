@@ -34,7 +34,7 @@ You can achieve this by initiating the docker build from the project's root, man
     ```
     If you get output from these commands, it means something is running on port 5000. The output will typically include the process ID (PID) of the process using the port.
 
-    In my case my 5000 port is in use so I will be using port 1000.
+    In my case my `5000` port is **occupied** so I will be using port `1000` instead.
 
     _**Note**: If your port 1000 is not available you need to change the `Dockerfile` and replace 1000 with your available port!_
 
@@ -58,7 +58,7 @@ You can achieve this by initiating the docker build from the project's root, man
     docker run -p 127.0.0.1:1000:1000 frontend-project
     ```
 
-5. Open you search engine (eg. Chrome) and type `127.0.0.1:1000`, you should see this:
+5. Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this:
 
     ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_12_output.png "Exercise 12 Output")
 

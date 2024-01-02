@@ -35,7 +35,7 @@ You can achieve this by initiating the docker build from the project's root, man
     docker run -p 127.0.0.1:1000:8080 spring-project
     ```
 
-4. Open you search engine (eg. Chrome) and type `127.0.0.1:1000`, you should see this when you press the button:
+4. Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
     ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_11_output.png "Exercise 11 Output")
 

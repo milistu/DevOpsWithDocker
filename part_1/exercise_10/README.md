@@ -23,7 +23,7 @@ Submit your used commands for this exercise.
     docker run -p 127.0.0.1:1000:8080 web-server
     ```
 
-3. Open you search engine (eg. Chrome) and type `127.0.0.1:1000`
+3. Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`
 
 __*Output:*__
 
