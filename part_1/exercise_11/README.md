@@ -37,7 +37,7 @@ You can achieve this by initiating the docker build from the project's root, man
 
 4. Open you search engine (eg. Chrome) and type `127.0.0.1:1000`, you should see this when you press the button:
 
-![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_11_output.png "Exercise 11 Output")
+    ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_11_output.png "Exercise 11 Output")
 
 5. After we verified that everything works we can now delete the "spring-example-project" so we don't waste space:
     ```bash
