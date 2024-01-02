@@ -13,7 +13,7 @@ Submit the edited Dockerfiles and commands used to run.
 
 The frontend will first talk to your browser. Then the code will be executed from your browser and that will send a message to backend.
 
-![input_2](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_input_1.png "More information about connection between frontend and backend")
+![input_2](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_input_2.png "More information about connection between frontend and backend")
 
 - TIP: When configuring web applications keep browser developer console ALWAYS open, F12 or cmd+shift+I when the browser window is open. Information about configuring cross origin requests is in README of the backend project.
 
