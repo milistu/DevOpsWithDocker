@@ -9,3 +9,12 @@ The `simple-backend` is the solution for this exercise,  just change into projec
 ```bash
 cd simple-backend
 ```
+
+### 🐳 DockerHub
+
+You can run this project direct from [DockerHub](https://hub.docker.com/repository/docker/studeni/simple-backend/general), to fast check how everything works:
+
+_**Note**: First check if your port 1000 is occupied._
+```bash
+docker run --rm -it -e PORT=1000 -p 127.0.0.1:1000:1000 studeni/simple-backend:small
+```
