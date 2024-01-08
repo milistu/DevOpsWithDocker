@@ -1,3 +1,6 @@
 [submodule "material-applications"]
 	path = material-applications
 	url = https://github.com/docker-hy/material-applications.git
+[submodule "part_1/exercise_15/simple-backend"]
+	path = part_1/exercise_15/simple-backend
+	url = https://github.com/milistu/simple-backend.git
