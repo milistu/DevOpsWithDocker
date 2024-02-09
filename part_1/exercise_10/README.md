@@ -27,6 +27,6 @@ Submit your used commands for this exercise.
 
 __*Output:*__
 
-```
+```js
 {"message":"You connected to the following path: /","path":"/"}
 ```
