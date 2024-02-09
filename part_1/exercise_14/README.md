@@ -23,12 +23,12 @@ The frontend will first talk to your browser. Then the code will be executed fro
 
 1. We need to add ENV variable in both frontend and backend Dockerfile.
 
-    In frontend Dockerfile (Exercise 12) we need to add:
+    In frontend Dockerfile ([Exercise 12](https://github.com/milistu/DevOpsWithDocker/tree/main/part_1/exercise_12)) we need to add:
 
     ```Dockerfile
     ENV REACT_APP_BACKEND_URL=http://localhost:8080
     ```
-    And, in backend Dockerfile (Exercise 13) we need to add:
+    And, in backend Dockerfile ([Exercise 13](https://github.com/milistu/DevOpsWithDocker/tree/main/part_1/exercise_13)) we need to add:
 
     ```Dockerfile
     ENV REQUEST_ORIGIN=http://localhost:1000
