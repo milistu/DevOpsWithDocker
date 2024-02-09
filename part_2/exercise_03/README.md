@@ -49,8 +49,6 @@ docker compose up
 ```
 
 ## Check the output:
-Open the web borwser and search `http://localhost:8080/`. 
-You should see the following message:
-```js
-{"message":"You connected to the following path: /","path":"/"}
-```
+Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
+
+  ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_output.png "Exercise 14 Output")
