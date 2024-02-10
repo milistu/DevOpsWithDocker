@@ -5,7 +5,7 @@ The best way to learn Docker!
 
 ## Clone the project
 
-**Note**: Be sure to use this command to clone the project because we are using submodule: 
+❗️**Note**: Be sure to use this command to clone the project because we are using submodule: 
 ```bash
 git clone --recurse-submodules https://github.com/milistu/DevOpsWithDocker.git
 
@@ -13,7 +13,7 @@ git clone --recurse-submodules https://github.com/milistu/DevOpsWithDocker.git
 
 If you already clone the repo without submodules like this:
 ```bash
-git clone 
+git clone https://github.com/milistu/DevOpsWithDocker.git
 ```
 You can initialize and update all submodules recursively with the command:
 ```bash
