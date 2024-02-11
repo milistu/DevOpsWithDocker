@@ -28,14 +28,14 @@ docker images
 If you do not see `frontend-project` and `backend-project`, refer to the first step from [previous exercise](https://github.com/milistu/DevOpsWithDocker/tree/main/part_2/exercise_03) to rebuild them.
 
 
-## 1. Create docker compose file:
+## 2. Create docker compose file:
 _**Note**: Be shure you are placed in directory `./part_2/exercise_04/`._
 
 ```bash
 touch docker-compose.yml
 ```
 
-## 2. Populate the `docker-compose.yml`:
+## 3. Populate the `docker-compose.yml`:
 - **Version**: `3.8`
 
 - **Services**:
@@ -57,7 +57,7 @@ touch docker-compose.yml
 
 This setup configures a backend and frontend service, with the backend connecting to a Redis database for caching or storage, all containerized and networked for local development or deployment.
 
-## 3. Run docker compose:
+## 4. Run docker compose:
 ```bash
 docker compose up
 ```
