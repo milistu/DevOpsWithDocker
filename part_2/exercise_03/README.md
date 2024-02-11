@@ -12,8 +12,21 @@ Submit the docker-compose.yml
 ## 1. Build frontend and backend images:
 ```bash
 cd part_1/exercise_12/
+```
+Copy necessary files:
+```bash
+./copy_project.sh
+```
+Build Docker Image 
+```bash
 docker build . -t frontend-project
+```
+Do the same for backend:
+```bash
 cd ../exercise_13/
+
+./copy_project.sh
+
 docker build . -t backend-project
 ```
 
@@ -51,4 +64,4 @@ docker compose up
 ## Check the output:
 Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
-  ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_output.png "Exercise 14 Output")
+  ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_output.png "Exercise 2.03 Output")
