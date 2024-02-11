@@ -65,4 +65,4 @@ docker compose up
 ## Check the output:
 Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
-  ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_4_output.png "Exercise 2.04 Output")
+![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_4_output.png "Exercise 2.04 Output")

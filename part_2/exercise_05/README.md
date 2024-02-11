@@ -35,4 +35,4 @@ _**Note**:Your aim is to get the **bottom** bar to fill before the **first** dep
 
 When you have right number of compute units th button will change color to green:
 
-    ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_5_output.png "Exercise 2.05 Output")
+![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_5_output.png "Exercise 2.05 Output")
