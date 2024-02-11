@@ -43,13 +43,19 @@ touch docker-compose.yml
     - **Image**: `backend-project`
     - **Container Name**: `backend`
     - **Ports**: Maps port `8080` on the host to port `8080` in the container.
+    - **Environment Variables**: Sets `REDIS_HOST=redis` to connect to the Redis service.
+
 
   - **Frontend**:
     - **Image**: `frontend-project`
     - **Container Name**: `frontend`
     - **Ports**: Maps port `1000` on the host to port `1000` in the container.
 
-Configures and runs separate containers for backend and frontend projects, accessible on ports `8080` and `1000` of the host, respectively.
+  - **Redis**:
+    - **Image**: `redis:alpine`
+    - **Container Name**: `redis`
+
+This setup configures a backend and frontend service, with the backend connecting to a Redis database for caching or storage, all containerized and networked for local development or deployment.
 
 ## 3. Run docker compose:
 ```bash
