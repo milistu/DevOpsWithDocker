@@ -31,7 +31,7 @@ docker build . -t backend-project
 ```
 
 ## 2. Create docker compose file:
-_**Note**: Be shure you are placed in directory `./part_2/exercise_03/`._
+_**Note**: Be sure you are placed in directory `./part_2/exercise_03/`._
 ```bash
 cd ../../part_2/exercise_03/
 ```
