@@ -3,6 +3,7 @@ version: '3.8'
 services:
   backend:
     image: backend-project
+    build: ../../part_1/exercise_13/
     ports:
       - 8080:8080
     environment:
@@ -11,6 +12,7 @@ services:
 
   frontend:
     image: frontend-project
+    build: ../../part_1/exercise_12/
     ports:
       - 1000:1000
     container_name: frontend
