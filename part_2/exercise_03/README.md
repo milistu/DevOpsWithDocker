@@ -9,28 +9,7 @@ Submit the docker-compose.yml
 
 # Solution 💡
 
-## 1. Build frontend and backend images:
-```bash
-cd part_1/exercise_12/
-```
-Copy necessary files:
-```bash
-./copy_project.sh
-```
-Build Docker Image 
-```bash
-docker build . -t frontend-project
-```
-Do the same for backend:
-```bash
-cd ../exercise_13/
-
-./copy_project.sh
-
-docker build . -t backend-project
-```
-
-## 2. Create docker compose file:
+## 1. Create docker compose file:
 _**Note**: Be sure you are placed in directory `./part_2/exercise_03/`._
 ```bash
 cd ../../part_2/exercise_03/
@@ -40,7 +19,7 @@ cd ../../part_2/exercise_03/
 touch docker-compose.yml
 ```
 
-## 3. Populate the `docker-compose.yml`:
+## 2. Populate the `docker-compose.yml`:
 - **Version**: `3.8`
 
 - **Services**:
@@ -56,7 +35,7 @@ touch docker-compose.yml
 
 Configures and runs separate containers for backend and frontend projects, accessible on ports `8080` and `1000` of the host, respectively.
 
-## 4. Run docker compose:
+## 3. Run docker compose:
 ```bash
 docker compose up
 ```
