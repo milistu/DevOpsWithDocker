@@ -59,7 +59,7 @@ docker compose up
 ```docker
 docker run -it --rm --network host networkstatic/nmap localhost
 ```
-We have som additional ports open:
+We have some additional ports open:
 ```bash
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-02-12 16:04 UTC
 Nmap scan report for localhost (127.0.0.1)
@@ -81,11 +81,32 @@ Nmap done: 1 IP address (1 host up) scanned in 1.34 seconds
 docker compose down
 ```
 
-## 5. Copy frontend and backend images:
+## 5. Make changes to compose file:
 
-We need to copy the files necessary to build our images and change them.
-I created a neat script to do everything at once, just run the command:
+We are going to remove **ports** from **frontend** and **backend** services. Also, we need to change `REQUEST_ORIGIN` in **backend** and `REACT_APP_BACKEND_URL` in **frontend** to http://frontend:1000/ and http://backend:8080/ respectivly. 
+
+Why this works?
+> Here are two services in a single network: webapp and webapp-helper. The webapp-helper has a server, listening for requests in port 3000, that webapp wants to access. Because they were defined in the same docker-compose.yml file the access is trivial. Docker Compose has already taken care of creating a network and webapp can simply send a request to webapp-helper:3000, the internal DNS will translate that to the correct access and ports do not have to be published outside of the network.
+
+[Link to quoted chapter](https://devopswithdocker.com/part-2/section-2/#:~:text=Here%20are%20two,of%20the%20network.).
+
+## 6. Check for open ports:
+```docker
+docker run -it --rm --network host networkstatic/nmap localhost
+```
+Output:
 
 ```bash
+Starting Nmap 7.92 ( https://nmap.org ) at 2024-02-20 18:42 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000010s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE    SERVICE
+80/tcp  filtered http
+111/tcp open     rpcbind
 
+Nmap done: 1 IP address (1 host up) scanned in 1.35 seconds
 ```
+
+Same as requested from the exercise! 
