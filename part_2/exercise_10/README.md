@@ -90,7 +90,15 @@ Why this works?
 
 [Link to quoted chapter](https://devopswithdocker.com/part-2/section-2/#:~:text=Here%20are%20two,of%20the%20network.).
 
-## 6. Check for open ports:
+## 6. Run docker compose:
+```bash
+docker compose up --build
+```
+
+_**Note**: We are setting `--build` argument to be sure that our images are up to date and for changes in frontend image to take affect. `REACT_APP_BACKEND_URL` is build argument and we need to make sure that no previous builds were left behind._
+
+
+## 7. Check for open ports:
 ```docker
 docker run -it --rm --network host networkstatic/nmap localhost
 ```
