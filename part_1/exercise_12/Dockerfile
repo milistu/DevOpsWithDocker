@@ -3,8 +3,11 @@ FROM node:16.20.2-alpine3.18
 WORKDIR /app
 
 # --- Additional for Exercise 1.14
-ENV REACT_APP_BACKEND_URL=http://localhost:8080
-# --- End
+# Accept REACT_APP_BACKEND_URL as a build-time argument
+ARG REACT_APP_BACKEND_URL
+
+# Use the argument to set the environment variable
+ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
 
 COPY /example-frontend /app
 
