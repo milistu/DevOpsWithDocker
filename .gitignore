@@ -6,3 +6,6 @@ part_1/exercise_12/example-frontend
 part_1/exercise_13/example-backend
 part_2/exercise_05/scaling-exercise
 database
+example-frontend
+example-backend
+! Dockerfile
