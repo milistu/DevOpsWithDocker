@@ -40,7 +40,7 @@ ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
 ```
 And we will pass REACT_APP_BACKEND_URL argument upon build. 
 
-You probably asking youself why? 
+You probably asking yourself why? 
 
 > React applications are built into static files (HTML, CSS, JS) by the npm run build command. During this build process, environment variables prefixed with REACT_APP_ are embedded into the built static files. This means that the values for these environment variables must be set before the build command is executed, as they are baked into the code at build time and cannot be changed without rebuilding the application.
 
