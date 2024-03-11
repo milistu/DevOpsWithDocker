@@ -5,33 +5,39 @@ Image `devopsdockeruh/simple-web-service:ubuntu` will start a container that out
 
 Submit the secret message and command(s) given as your answer.
 
-## Solution 💡
+# Solution 💡
 
-1. Create a container:
-
-    ```bash
-    docker run -d --name web-service devopsdockeruh/simple-web-service:ubuntu
-    ```
-    
-2. Access container with input privileges
-
-    ```bash
-    docker exec -it web-service bash
-    ```
-
-3. Read "secret message": 
-
-    ```bash
-    tail -f ./text.log
-    ```
-
-__*Secret message:*__
+## 1. Create a container:
 
 ```bash
+docker run -d --name web-service devopsdockeruh/simple-web-service:ubuntu
+```
+    
+## 2. Access container with input privileges
+
+```bash
+docker exec -it web-service bash
+```
+
+## 3. Read "secret message": 
+
+```bash
+tail -f ./text.log
+```
+
+## __*Secret message:*__
+
+```bash
+2024-03-11 16:55:57 +0000 UTC
 Secret message is: 'You can find the source code here: https://github.com/docker-hy'
-2023-12-30 17:10:48 +0000 UTC
-2023-12-30 17:10:50 +0000 UTC
-2023-12-30 17:10:52 +0000 UTC
-2023-12-30 17:10:54 +0000 UTC
-2023-12-30 17:10:56 +0000 UTC
+2024-03-11 16:55:59 +0000 UTC
+2024-03-11 16:56:01 +0000 UTC
+2024-03-11 16:56:03 +0000 UTC
+2024-03-11 16:56:05 +0000 UTC
+2024-03-11 16:56:07 +0000 UTC
+```
+
+## Cleanup 🧹
+```bash
+docker stop web-service
 ```
