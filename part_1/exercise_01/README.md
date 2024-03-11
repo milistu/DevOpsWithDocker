@@ -1,13 +1,15 @@
 # EXERCISE 1.1: GETTING STARTED 🤔
+Since we already did "Hello, World!" in the material let's do something else.
+
 Start 3 containers from an image that does not automatically exit (such as nginx) in detached mode.
 
 Stop two of the containers and leave one container running.
 
 Submit the output for `docker ps -a` which shows 2 stopped containers and one running.
 
-## Solution 💡
+# Solution 💡
 
-Start 3 containers in detached mode:
+## 1. Start 3 containers in detached mode:
 
 ```bash
 docker run -d --name cont1 nginx
@@ -15,13 +17,13 @@ docker run -d --name cont2 nginx
 docker run -d --name cont2 nginx
 ```
 
-Stop 2 containers `cont1, cont2`:
+## 2. Stop 2 containers `cont1, cont2`:
 
 ```bash
 docker stop cont1
 docker stop cont2
 ```
-Output for `docker ps -a`:
+## 3. Output for `docker ps -a`:
 
 | **CONTAINER ID** | **IMAGE** | **COMMAND** | **CREATED** | **STATUS** | **PORTS** | **NAMES** |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
