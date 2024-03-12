@@ -8,10 +8,6 @@ COPY /example-backend /app
 # gcc and musl-dev are typically required for go test
 RUN apk add --no-cache gcc musl-dev
 
-# --- Additional for Exercise 1.14
-ENV REQUEST_ORIGIN=http://localhost:1000
-# --- End
-
 ENV PORT=8080
 EXPOSE $PORT
 
