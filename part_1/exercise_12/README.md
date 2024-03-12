@@ -59,5 +59,3 @@ docker run --rm -p 127.0.0.1:1000:5000 frontend-project
 Open your search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this:
 
 ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_12_output.png "Exercise 12 Output")
-
-_**Note**: We won't be deleting "example-frontend" yet, we will need it for the next exercises._
