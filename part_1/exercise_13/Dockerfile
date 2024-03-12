@@ -12,9 +12,7 @@ RUN apk add --no-cache gcc musl-dev
 ENV REQUEST_ORIGIN=http://localhost:1000
 # --- End
 
-# Change port number here if it is not available
 ENV PORT=8080
-
 EXPOSE $PORT
 
 RUN go build
