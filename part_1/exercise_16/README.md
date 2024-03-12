@@ -66,13 +66,13 @@ I used my [repository](https://github.com/milistu/simple-backend) from the previ
 
 5. **Using our app**:
 
-    Copy the link that Render generated for you web-app, it looks something like this:
+    Copy the link that Render generated for your web-app, it looks something like this:
     ```
     https://<your-app-name>.onrender.com/docs
     ```
-    We added `/docs` at the end, so we can access Swagger and you cen test it right away even from your phone or laptop.
+    We added `/docs` at the end, so we can access Swagger and you can test it right away even from your phone or laptop.
     
-    Go to Authorize and input your username and password to get required token.
+    Go to Authorize and input your username and password to get the required token.
 
     In our example username:
     ```
@@ -83,7 +83,7 @@ I used my [repository](https://github.com/milistu/simple-backend) from the previ
 
 ## My App:
 
-Detail description of app can be found on [repository](https://github.com/milistu/simple-backend).
+A detailed description of an app can be found on the [repository](https://github.com/milistu/simple-backend).
 
 To access the app you can go to:
 ```bash
