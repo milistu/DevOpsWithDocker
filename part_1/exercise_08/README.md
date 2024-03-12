@@ -1,5 +1,7 @@
 # EXERCISE 1.8: TWO LINE DOCKERFILE 🤔
-By default our `devopsdockeruh/simple-web-service:alpine` doesn't have a CMD. It instead uses ENTRYPOINT to declare which application is run.
+By default our `devopsdockeruh/simple-web-service:alpine` doesn't have a CMD.
+
+Instead, it uses ENTRYPOINT to declare which application is run.
 
 We'll talk more about ENTRYPOINT in the next section, but you already know that the last argument in `docker run` can be used to give a command or an argument.
 
@@ -9,7 +11,7 @@ Try `docker run devopsdockeruh/simple-web-service:alpine hello`. The application
 
 In this exercise create a Dockerfile and use FROM and CMD to create a brand new image that automatically runs `server`.
 
-The Docker documentation [CMD](https://docs.docker.com/engine/reference/builder/#cmd) says a bit indirectly that if a image has ENTRYPOINT defined, CMD is used to define it the default arguments.
+The Docker documentation [CMD](https://docs.docker.com/engine/reference/builder/#cmd) says a bit indirectly that if an image has ENTRYPOINT defined, CMD is used to define it the default arguments.
 
 Tag the new image as "web-server"
 
@@ -33,24 +35,29 @@ $ docker run web-server
 
 - The exercise title may be a useful hint here.
 
-## Solution 💡
+# Solution 💡
 
-1. Create and populate `Dockerfile`
+## 1. Create and populate `Dockerfile`:
+```Dockerfile
+FROM devopsdockeruh/simple-web-service:alpine
 
-2. Build the image:
+CMD server
+```
 
-    _**Note**: Be shure you are in directory containing `Dockerfile`_
+## 2. Build the image:
 
-    ```bash
-    docker build . -t web-server
-    ```
+_**Note**: Be sure you are in the directory containing `Dockerfile`_
+
+```bash
+docker build . -t web-server
+```
     
-3. Run container:
-    ```bash
-    docker run web-server
-    ```
+## 3. Run container:
+```bash
+docker run --rm web-server
+```
 
-__*Output:*__
+## __*Output:*__
 
 ```bash
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
