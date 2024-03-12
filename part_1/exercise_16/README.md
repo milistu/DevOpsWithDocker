@@ -8,32 +8,33 @@ There are plenty of alternatives, and most provide a free tier. Here are some al
 - [fly.io](https://fly.io/) (easy to use but needs a credit card even in the free tier)
 - [render.com](https://render.com/) (bad documentation, you most likely need google)
 - [heroku.com](https://www.heroku.com/) (has a free student plan through [GitHub Student Developer Pack](https://www.heroku.com/github-students))
+
 If you know a good cloud service for the purposes of this exercise, please tell us (yes, we know about Amazon AWS, Google Cloud and Azure already... ).
 
 Submit the Dockerfile, a brief description of what you did, and a link to the running app.
 
-## Solution 💡
+# Solution 💡
 
 For this deployment, we will use [Render](https://render.com/). 
 They have free options for deploying your docker image from DockerHub or GitHub which is neat!
 Besides that, it is really simple to navigate and use.
 
-I used my [repository](https://github.com/milistu/simple-backend) from previous exercise.
+I used my [repository](https://github.com/milistu/simple-backend) from the previous exercise.
 
-### Create a New Web Service on Render
+## Create a New Web Service on Render
 
 1. **Log In to Render**: 
 
     Go to the Render dashboard and sign in.
 
-2. **Create New Web Service**:
+2. **Create a New Web Service**:
 
     Click on the "New+" button at the top right corner and select "Web
     Service". <br>
     Choose how would you like to deploy your web service:
      - Build and deploy from a Git repository
      - Deploy an existing image from a registry
-    _**Note**: I used the first option. Even tho image exists on DockerHub and it is Public, I couldn't deploy it that way because the platform is `linux/arm64`, however Render requires `linux/amd64`._
+    _**Note**: I used the first option. Even tho image exists on DockerHub and it is Public, I couldn't deploy it that way because the platform is `linux/arm64`, however, Render requires `linux/amd64`._
 
     Render will ask you to connect your GitHub or GitLab account if you haven’t already. But you can also just enter URL to the public repository.
 
@@ -51,11 +52,11 @@ I used my [repository](https://github.com/milistu/simple-backend) from previous 
 
     **Region**: Select the region that best suits your needs.
 
-    **Add Environment Variables (Optional)**: We already set environment variables in `Dockerfile` which is the worst thing you can do but this is only for learning. The best practice would be to remove those varaiables and place them in this fields.
+    **Add Environment Variables (Optional)**: We already set environment variables in `Dockerfile` which is the worst thing you can do but this is only for learning. The best practice would be to remove those variables and place them in these fields.
 
-    We have also "Advanced" options that we do not need for this project but I encurage you to check them, to see what else is possible.
+    We have also "Advanced" options that we do not need for this project but I encourage you to check them, to see what else is possible.
 
-    Click "Create Web Service". Render will pull your Docker image from the registry and deploy it OR build it from Dockerfile found in GitHub repo.
+    Click "Create Web Service". Render will pull your Docker image from the registry and deploy it OR build it from the Dockerfile found in the GitHub repo.
 
 
 4. **Access and Monitor Your Application**:
@@ -79,3 +80,20 @@ I used my [repository](https://github.com/milistu/simple-backend) from previous 
     password=ThisPasswordIsTheBest,TrustMe!
     ```
     Now you can test one of end-points (eg. image, audio, text).
+
+## My App:
+
+Detail description of app can be found on [repository](https://github.com/milistu/simple-backend).
+
+To access the app you can go to:
+```bash
+https://reverse-all.onrender.com/docs
+```
+
+Enter the credentials in **Authorize**:
+- Username: **johndoe**
+- Password: **BestPassword!**
+
+Try different "Reverse" endpoints!
+
+_**Note**: Audio endpoint can't be tested/PLayed through Swagger UI._
