@@ -16,7 +16,7 @@ RUN npm run build
 RUN npm install -g serve
 
 # Change port number here if it is not available
-ENV PORT=1000
+ENV PORT=5000
 EXPOSE $PORT
 
 CMD serve -s -l $PORT build
