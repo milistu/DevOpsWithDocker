@@ -3,7 +3,7 @@ We can improve our previous solutions now that we know how to create and build a
 
 Let us now get back to [Exercise 1.4](https://github.com/milistu/DevOpsWithDocker/blob/main/part_1/exercise_4/solution.md).
 
-Create a new file on your local machine and append the script we used previously into that file:
+Create a new file `script.sh` on your local machine with the following contents:
 
 ```bash
 while true
@@ -14,11 +14,12 @@ do
 done
 ```
 
-Create a Dockerfile for a new image that starts from ubuntu:20.04 and add instructions to install curl into that image. Then add instructions to copy the script file into that image and finally set it to run on container start using CMD.
+Create a Dockerfile for a new image that starts from _ubuntu:20.04_ and add instructions to install `curl` into that image. Then add instructions to copy the script file into that image and finally set it to run on container start using CMD.
 
 After you have filled the Dockerfile, build the image with the name "curler".
 
-If you are getting permission denied, use `chmod` to give permission to run the script.
+- If you are getting permission denied, use `chmod` to give permission to run the script.
+
 The following should now work:
 
 ```
@@ -36,34 +37,57 @@ $ docker run -it curler
   </body></html>
   ```
 
-
 Remember that [RUN](https://docs.docker.com/engine/reference/builder/#run) can be used to execute commands while building the image!
 
 Submit the Dockerfile.
 
-## Solution 💡
+# Solution 💡
 
-1. Create a `script.sh` and copy the code.
+## 1. Create a `script.sh` and copy the code.
+```bash
+while true
+do
+  echo "Input website:"
+  read website; echo "Searching.."
+  sleep 1; curl http://$website
+done
+```
 
-2. Create and populate the `Dockerfile`
+## 2. Create and populate the `Dockerfile`
+```Dockerfile
+FROM ubuntu:20.04
 
-3. Build a Docker image:
+RUN apt update && apt install -y curl
 
-    _**Note**: Be shure you are in directory containing `Dockerfile`._
-    
-    ```bash
-    docker build . -t web-service
-    ```
+WORKDIR /usr/src/app
 
-4. Run container:
+COPY script.sh .
 
-    ```bash
-    docker run -it web-service
-    ```
+RUN chmod +x script.sh
 
-5. Input example url `helsinki.fi`
+CMD ./script.sh
+```
+## 3. Build a Docker image:
 
-__*Output:*__
+_**Note**: Be sure you are in the directory containing `Dockerfile`._
+  
+```bash
+docker build . -t curler
+```
+
+## 4. Run container:
+
+```bash
+docker run -it --rm curler
+```
+
+## 5. Check results:
+Input example URL:
+```
+helsinki.fi
+```
+
+_Output:_
 
 ```html
 <html>
