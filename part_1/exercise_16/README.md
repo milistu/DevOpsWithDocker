@@ -82,6 +82,7 @@ I used my [repository](https://github.com/milistu/simple-backend) from the previ
     Now you can test one of end-points (eg. image, audio, text).
 
 ## My App:
+This app takes as input image, audio or text, and as a result, it returns a reversed file.
 
 A detailed description of an app can be found on the [repository](https://github.com/milistu/simple-backend).
 
