@@ -44,3 +44,9 @@ docker compose up
 
 ## Check the output:
 Open the `text.log` file to uncover the secret message!
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```
