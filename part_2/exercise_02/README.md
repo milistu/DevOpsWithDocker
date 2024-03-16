@@ -50,3 +50,9 @@ You should see the following message:
 ```js
 {"message":"You connected to the following path: /","path":"/"}
 ```
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```
