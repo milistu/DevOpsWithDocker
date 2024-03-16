@@ -1,5 +1,5 @@
 # EXERCISE 2.4 🤔
-In this exercise you should expand the configuration done in [Exercise 2.3](https://devopswithdocker.com/part-2/section-1/#exercises-22---23) and set up the example backend to use the key-value database [Redis](https://redis.com/).
+In this exercise, you should expand the configuration done in [Exercise 2.3](https://devopswithdocker.com/part-2/section-1/#exercises-22---23) and set up the example backend to use the key-value database [Redis](https://redis.com/).
 
 Redis is quite often used as a [cache](https://en.wikipedia.org/wiki/Cache_(computing)) to store data so that future requests for data can be served faster.
 
@@ -15,47 +15,63 @@ Submit the docker-compose.yml
 
 ![Input](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_4_input.png "Exercise 2.04 Input")
 
-Backend, frontend and redis
-
 The [restart: unless-stopped](https://docs.docker.com/compose/compose-file/compose-file-v3/#restart) configuration can help if the Redis takes a while to get ready.
 
 # Solution 💡
 
-## 1. Create docker compose file:
-_**Note**: Be shure you are placed in directory `./part_2/exercise_04/`._
+## 1. Create the docker-compose file:
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_04/`._
 
 ```bash
 touch docker-compose.yml
 ```
 
 ## 2. Populate the `docker-compose.yml`:
-- **Version**: `3.8`
+```yml
+version: '3.8'
 
-- **Services**:
-  - **Backend**:
-    - **Image**: `backend-project`
-    - **Container Name**: `backend`
-    - **Ports**: Maps port `8080` on the host to port `8080` in the container.
-    - **Environment Variables**: Sets `REDIS_HOST=redis` to connect to the Redis service.
+services:
+  backend:
+    image: backend-project
+    build: 
+      context: ../exercise_04/example-backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - 8080:8080
+    environment:
+      - REDIS_HOST=redis
+    container_name: backend
 
-
-  - **Frontend**:
-    - **Image**: `frontend-project`
-    - **Container Name**: `frontend`
-    - **Ports**: Maps port `1000` on the host to port `1000` in the container.
-
-  - **Redis**:
-    - **Image**: `redis:alpine`
-    - **Container Name**: `redis`
+  frontend:
+    image: frontend-project
+    build: 
+      context: ../exercise_04/example-frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - REACT_APP_BACKEND_URL=http://127.0.0.1:8080
+    ports:
+      - 1000:5000
+    container_name: frontend
+  
+  redis:
+    image: redis:alpine
+    container_name: redis
+```
 
 This setup configures a backend and frontend service, with the backend connecting to a Redis database for caching or storage, all containerized and networked for local development or deployment.
 
-## 3. Run docker compose:
+## 3. Run the docker-compose:
 ```bash
 docker compose up
 ```
 
 ## Check the output:
-Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
+Open your search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
 ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_4_output.png "Exercise 2.04 Output")
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```
