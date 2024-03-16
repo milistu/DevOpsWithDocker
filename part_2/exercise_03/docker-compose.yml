@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   backend:
+    image: backend-project
     build: 
       context: example-backend
       dockerfile: Dockerfile.backend
@@ -10,7 +11,8 @@ services:
     container_name: backend
   
   frontend:
-    build: 
+    image: frontend-project
+    build:
       context: example-frontend
       dockerfile: Dockerfile.frontend
       args:
