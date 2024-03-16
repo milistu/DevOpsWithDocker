@@ -63,3 +63,9 @@ docker compose up
 Open your search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
   ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_output.png "Exercise 2.03 Output")
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```
