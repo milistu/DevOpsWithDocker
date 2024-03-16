@@ -2,16 +2,19 @@ version: '3.8'
 
 services:
   backend:
-    image: backend-project
-    build: ../../part_1/exercise_13/
+    build: 
+      context: example-backend
+      dockerfile: Dockerfile.backend
     ports:
       - 8080:8080
     container_name: backend
   
   frontend:
-    image: frontend-project
-    build: ../../part_1/exercise_12/
+    build: 
+      context: example-frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - REACT_APP_BACKEND_URL=http://127.0.0.1:8080
     ports:
-      - 1000:1000
+      - 1000:5000
     container_name: frontend
-

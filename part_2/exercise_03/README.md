@@ -9,8 +9,16 @@ Submit the docker-compose.yml
 
 # Solution 💡
 
-## 1. Create docker compose file:
-_**Note**: Be sure you are placed in directory `./part_2/exercise_03/`._
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_03/`._
+
+## 1. Copy relevant files:
+
+```bash
+./copy_project.sh
+```
+
+## 2. Create the docker-compose file:
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_03/`._
 ```bash
 cd ../../part_2/exercise_03/
 ```
@@ -19,28 +27,39 @@ cd ../../part_2/exercise_03/
 touch docker-compose.yml
 ```
 
-## 2. Populate the `docker-compose.yml`:
-- **Version**: `3.8`
+## 3. Populate the `docker-compose.yml`:
 
-- **Services**:
-  - **Backend**:
-    - **Image**: `backend-project`
-    - **Container Name**: `backend`
-    - **Ports**: Maps port `8080` on the host to port `8080` in the container.
+```yml
+version: '3.8'
 
-  - **Frontend**:
-    - **Image**: `frontend-project`
-    - **Container Name**: `frontend`
-    - **Ports**: Maps port `1000` on the host to port `1000` in the container.
+services:
+  backend:
+    build: 
+      context: example-backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - 8080:8080
+    container_name: backend
+  
+  frontend:
+    build: 
+      context: example-frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - REACT_APP_BACKEND_URL=http://127.0.0.1:8080
+    ports:
+      - 1000:5000
+    container_name: frontend
+```
 
 Configures and runs separate containers for backend and frontend projects, accessible on ports `8080` and `1000` of the host, respectively.
 
-## 3. Run docker compose:
+## 4. Run the docker-compose:
 ```bash
 docker compose up
 ```
 
 ## Check the output:
-Open you search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
+Open your search engine (eg. Chrome) and type `http://127.0.0.1:1000`, you should see this when you press the button:
 
   ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_1_14_output.png "Exercise 2.03 Output")
