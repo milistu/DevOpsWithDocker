@@ -9,7 +9,7 @@ Submit the docker-compose.yml, and make sure that it works simply by running `do
 
 # Solution 💡
 
-_**Note**: Be sure you are placed in directory `./part_2/exercise_02/`._
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_02/`._
 
 ## 1. First create the docker-compose file:
 ```bash
