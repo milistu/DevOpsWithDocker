@@ -3,7 +3,9 @@ version: '3.8'
 services:
   backend:
     image: backend-project
-    build: ../../part_1/exercise_13/
+    build:
+      context: ../exercise_03/example-backend
+      dockerfile: Dockerfile.backend
     ports:
       - 8080:8080
     environment:
@@ -11,19 +13,23 @@ services:
       - POSTGRES_HOST=db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - REQUEST_ORIGIN=http://localhost # Added
+      - REQUEST_ORIGIN=http://localhost
     container_name: backend
     depends_on:
       - db
 
   frontend:
     image: frontend-project
-    build: ../../part_1/exercise_12/
+    build:
+      context: ../exercise_03/example-frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost/api
     ports:
-      - 1000:1000
+      - 1000:5000
     container_name: frontend
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost/api # Added
+    depends_on:
+      - backend
   
   redis:
     image: redis:alpine
@@ -35,6 +41,8 @@ services:
     container_name: db
     environment:
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
 
   proxy:
     image: nginx:alpine
