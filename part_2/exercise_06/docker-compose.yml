@@ -27,6 +27,8 @@ services:
     ports:
       - 1000:5000
     container_name: frontend
+    depends_on:
+      - backend
   
   redis:
     image: redis:alpine
