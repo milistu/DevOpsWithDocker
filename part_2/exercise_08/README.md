@@ -1,5 +1,5 @@
 # EXERCISE 2.8 🤔
-Add [Nginx](https://hub.docker.com/_/nginx) to example to work as a [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) in front of the example app frontend and backend. According to Wikipedia
+Add [Nginx](https://hub.docker.com/_/nginx) to the example to work as a [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) in front of the example app frontend and backend. According to Wikipedia
 
 _A reverse proxy is a type of proxy server that retrieves resources on behalf of a client from one or more servers. These resources are then returned to the client, appearing as if they originated from the reverse proxy server itself._
 
@@ -7,11 +7,11 @@ _A reverse proxy is a type of proxy server that retrieves resources on behalf of
 
 So in our case, the reverse proxy will be the single point of entry to our application, and the final goal will be to set both the React frontend and the Express backend behind the reverse proxy.
 
-The idea is that browser makes _all_ requests to _http://localhost_. If the request has a url prefix _http://localhost/api_, Nginx should forward the request to the backend container. All the other requests are directed the frontend container.
+The idea is that a browser makes _all_ requests to _http://localhost_. If the request has a URL prefix _http://localhost/api_, Nginx should forward the request to the backend container. All the other requests are directed to the frontend container.
 
-So, at the end you should see that the frontend is accessible simply by going to http://localhost. All buttons, except the one labelled _Exercise 2.8_ may have stopped working, do not worry about them, we shall fix that later.
+So, at the end, you should see that the frontend is accessible simply by going to http://localhost. All buttons, except the one labeled _Exercise 2.8_ may have stopped working, do not worry about them, we shall fix that later.
 
-The following file should be set to `/etc/nginx/nginx.conf` inside the nginx container. You can use a file bind mount where the contents of the file is the following:
+The following file should be set to `/etc/nginx/nginx.conf` inside the nginx container. You can use a file bind mount where the contents of the file are the following:
 ```bash
 events { worker_connections 1024; }
 
@@ -32,9 +32,9 @@ http {
   }
 }
 ```
-Nginx, backend and frontend should be connected in the same network. See the image above for how the services are connected. You find [Nginx-documentation](https://www.nginx.com/resources/wiki/start/topics/examples/full/) helpful, but remember, the configuration you need is pretty straight forward, if you end up doing complex things, you are most likely doing something wrong.
+Nginx, backend and frontend should be connected in the same network. See the image above for how the services are connected. You find [Nginx-documentation](https://www.nginx.com/resources/wiki/start/topics/examples/full/) helpful, but remember, the configuration you need is pretty straightforward, if you end up doing complex things, you are most likely doing something wrong.
 
-If and when your app "does not work", remember to have a look in log, it can be pretty helpful in pinpointing errors:
+If and when your app "does not work", remember to have a look in the log, it can be pretty helpful in pinpointing errors:
 ```bash
 2_7-proxy-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 2_7-proxy-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
@@ -44,9 +44,10 @@ If and when your app "does not work", remember to have a look in log, it can be 
 Submit the docker-compose.yml
 
 # Solution 💡
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_08/`._
 
-## 1. Copy the docker compose file from Exercise 2.6:
-_**Note**: Be shure you are placed in directory `./part_2/exercise_08/`._
+## 1. Copy the docker-compose file from Exercise 2.7:
+_**Note**: Working docker-compose is already present in the directory, these steps only describe to you how we achieved this._
 
 ```bash
 cp ../exercise_06/docker-compose.yml docker-compose.yml
@@ -56,7 +57,7 @@ cp ../exercise_06/docker-compose.yml docker-compose.yml
 ```bash
 touch nginx.conf
 ```
-After creating config file paste the content from exercise with right url's for frontend and backend.
+After creating the config file paste the content from the exercise with the right URL for frontend and backend.
 ```bash
 events { worker_connections 1024; }
 
@@ -76,8 +77,8 @@ http {
 }
 ```
 
-## 3. Add bind mount to database `docker-compose.yml`:
-```docker
+## 3. Add bind mount to config `docker-compose.yml`:
+```yaml
   proxy:
     image: nginx:alpine
     volumes:
@@ -96,6 +97,12 @@ docker compose up
 ```
 
 ## Check the output:
-Open you search engine (eg. Chrome) and type `http://127.0.0.1` (or `http://localhost/`), you should see this when you press the button:
+Open your search engine (eg. Chrome) and type `http://127.0.0.1` (or `http://localhost/`), you should see this when you press the button:
 
 ![success](https://github.com/milistu/DevOpsWithDocker/blob/main/assets/exercise_2_8_output.png "Exercise 2.08 Output")
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```
