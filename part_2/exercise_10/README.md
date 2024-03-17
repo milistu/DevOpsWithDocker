@@ -42,15 +42,16 @@ PORT    STATE    SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 1.28 seconds
 ```
 # Solution 💡
+_**Note**: Be sure you are placed in the directory `./part_2/exercise_10/`._
 
-## 1. Copy the docker compose file and ndinx config from Exercise 2.9:
-_**Note**: Be shure you are placed in directory `./part_2/exercise_10/`._
+## 1. Copy the docker-compose file and Nginx config from Exercise 2.9:
+_**Note**: Working docker-compose is already present in the directory, these steps only describe to you how we achieved this._
 
 ```bash
 rsync -av --exclude='README.md' ../exercise_09/ ./
 ```
 
-## 2. Run docker compose:
+## 2. Run docker-compose:
 ```bash
 docker compose up
 ```
@@ -76,6 +77,8 @@ PORT     STATE    SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 1.34 seconds
 ```
 
+_**Note**: I have two suspicious open ports: 1000 and 8080, not 5000  because earlier I connected port 1000 to the frontend because my 5000 port was occupied._
+
 ## 4. Stop containers:
 ```bash
 docker compose down
@@ -83,19 +86,19 @@ docker compose down
 
 ## 5. Make changes to compose file:
 
-We are going to remove **ports** from **frontend** and **backend** services. Also, we need to change `REQUEST_ORIGIN` in **backend** and `REACT_APP_BACKEND_URL` in **frontend** to http://frontend:1000/ and http://backend:8080/ respectivly. 
+We are going to remove **ports** from **frontend** and **backend** services.
 
-Why this works?
+Why does this work?
 > Here are two services in a single network: webapp and webapp-helper. The webapp-helper has a server, listening for requests in port 3000, that webapp wants to access. Because they were defined in the same docker-compose.yml file the access is trivial. Docker Compose has already taken care of creating a network and webapp can simply send a request to webapp-helper:3000, the internal DNS will translate that to the correct access and ports do not have to be published outside of the network.
 
 [Link to quoted chapter](https://devopswithdocker.com/part-2/section-2/#:~:text=Here%20are%20two,of%20the%20network.).
 
-## 6. Run docker compose:
+## 6. Run docker-compose:
 ```bash
 docker compose up --build
 ```
 
-_**Note**: We are setting `--build` argument to be sure that our images are up to date and for changes in frontend image to take affect. `REACT_APP_BACKEND_URL` is build argument and we need to make sure that no previous builds were left behind._
+_**Note**: We are setting a `--build` argument to be sure that our images are up to date and for changes in frontend image to take effect. `REACT_APP_BACKEND_URL` is a build argument and we need to make sure that no previous builds were left behind._
 
 
 ## 7. Check for open ports:
@@ -117,4 +120,10 @@ PORT    STATE    SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 1.35 seconds
 ```
 
-Same as requested from the exercise! 
+Same as requested from the exercise! 👌
+
+## Cleanup 🧹
+Remove docker containers:
+```bash
+docker compose down
+```

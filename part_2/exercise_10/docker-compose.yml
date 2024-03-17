@@ -3,24 +3,29 @@ version: '3.8'
 services:
   backend:
     image: backend-project
-    build: ../../part_1/exercise_13/
+    build:
+      context: ../exercise_03/example-backend
+      dockerfile: Dockerfile.backend
     environment:
-      REDIS_HOST: redis
-      POSTGRES_HOST: db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      REQUEST_ORIGIN: http://frontend:1000/ # Changed
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - REQUEST_ORIGIN=http://localhost
     container_name: backend
     depends_on:
       - db
-      - redis
 
   frontend:
     image: frontend-project
-    build: ../../part_1/exercise_12/
+    build:
+      context: ../exercise_03/example-frontend
+      dockerfile: Dockerfile.frontend
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost/api
     container_name: frontend
-    environment:
-      REACT_APP_BACKEND_URL: http://backend:8080/ # Changed
+    depends_on:
+      - backend
   
   redis:
     image: redis:alpine
@@ -32,6 +37,8 @@ services:
     container_name: db
     environment:
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
 
   proxy:
     image: nginx:alpine
@@ -39,5 +46,8 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
+    depends_on:
+      - backend
+      - frontend
     container_name: nginx
 
